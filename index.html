@@ -8,8 +8,8 @@
   <meta property="og:title" content="Renda Extra no Ponto">
   <meta property="og:description" content="Três opções de aprendizado para renda extra. Compare o que cada curso ensina, os preços e conheça os detalhes nas páginas oficiais.">
   <meta property="og:type" content="website">
-  <meta name="theme-color" content="#FFF3E3">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23FFF3E3'/%3E%3Cpath d='M20 16h24v32H20z' fill='%23F6B73C' stroke='%233A2218' stroke-width='3'/%3E%3Cpath d='M27 24h10M27 31h10M30 41h4' stroke='%233A2218' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+  <meta name="theme-color" content="#F8F9FA">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23EAF8EF'/%3E%3Cpath d='M20 16h24v32H20z' fill='%2327AE60' stroke='%2318212B' stroke-width='3'/%3E%3Cpath d='M27 24h10M27 31h10M30 41h4' stroke='%2318212B' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
   <!-- TODO após a publicação: adicionar canonical e og:url com o domínio real.
        Adicionar og:image somente quando existir uma imagem pública adequada. -->
 
@@ -22,33 +22,33 @@
       "canva": "https://kiwify.app/1SMfVeQ?afid=vU2PrZbU"
     }
   </script>
-  <!-- Fontes opcionais; o conteúdo usa fontes locais imediatamente se a rede falhar. -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Nunito:wght@400;500;600;700&display=swap">
+  <!-- Fontes locais: nenhuma requisição externa é necessária para exibir a página. -->
   <style>
     :root {
-      --background: #FFF3E3;
-      --background-end: #FFE9D2;
-      --surface: #FFFBF4;
-      --border: #F1D9BC;
-      --shadow: rgba(120, 60, 20, .12);
-      --text: #3A2218;
-      --muted: #7A5A48;
+      --background: #F8F9FA;
+      --surface: #FFFFFF;
+      --border: #DFE5E2;
+      --shadow: rgba(24, 33, 43, .07);
+      --text: #18212B;
+      --muted: #5F6B76;
+      --green: #27AE60;
+      --green-ink: #187D45; /* Variante escura para texto e ícones com contraste AA. */
+      --green-light: #EAF8EF;
+      --soft: #F3F7F4;
       --button: #F28C28;
-      --button-edge: #B85C0A;
-      --check: #5F8D3E;
-      --metodo: #F6B73C;
-      --pva: #E2674A;
-      --canva: #E5708A;
-      --focus: #67412A;
-      --heading-font: "Fredoka", "Trebuchet MS", system-ui, sans-serif;
-      --body-font: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --button-active: #DD7414;
+      --button-edge: #A9530E;
+      --check: #27AE60;
+      --focus: #187D45;
+      --heading-font: system-ui, -apple-system, "Segoe UI", sans-serif;
+      --body-font: system-ui, -apple-system, "Segoe UI", sans-serif;
     }
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
       color: var(--text);
-      background: linear-gradient(160deg, var(--background), var(--background-end));
+      background: var(--background);
       font-family: var(--body-font);
       font-size: 16px;
       line-height: 1.5;
@@ -60,116 +60,106 @@
       outline-offset: 5px;
     }
     .page { width: min(480px, calc(100% - 32px)); margin: 0 auto; }
-    .hero { padding: 32px 0 28px; }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin: 0 0 18px;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-    }
-    .brand svg { width: 22px; height: 22px; flex: none; }
+    .hero { padding: 22px 0 20px; }
     h1, h2, h3, p { margin: 0; }
-    h1, h2, h3 { font-family: var(--heading-font); font-weight: 600; }
-    h1 { max-width: 440px; font-size: clamp(32px, 8.4vw, 40px); line-height: 1.12; letter-spacing: -.025em; }
-    .hero-intro { margin-top: 14px; color: var(--muted); }
-    .choose { margin-top: 24px; }
-    .choose-title { margin-bottom: 10px; font-weight: 700; }
-    .shortcuts { display: grid; gap: 8px; }
+    h1, h2, h3 { font-family: var(--heading-font); font-weight: 750; }
+    h1 { font-size: clamp(28px, 7.7vw, 32px); line-height: 1.12; letter-spacing: -.035em; }
+    .highlight { color: var(--green-ink); }
+    .hero-intro { margin-top: 10px; color: var(--muted); font-size: 15px; line-height: 1.45; }
+    .choose { margin-top: 16px; }
+    .choose-title { margin-bottom: 8px; font-size: 16px; font-weight: 700; }
+    .shortcuts { display: grid; gap: 6px; }
     .shortcut {
       display: grid;
-      grid-template-columns: 7px minmax(0, 1fr) auto 16px;
+      grid-template-columns: 4px minmax(0, 1fr) auto;
       align-items: center;
-      gap: 10px;
-      min-height: 52px;
-      padding: 10px 13px;
+      gap: 9px;
+      min-height: 58px;
+      padding: 8px 10px;
       border: 1px solid var(--border);
       border-radius: 12px;
-      background: rgba(255, 251, 244, .8);
+      background: var(--surface);
       text-decoration: none;
       font-weight: 700;
       transition: background-color .15s, transform .15s;
     }
-    .shortcut-dot { width: 7px; height: 22px; border-radius: 5px; background: var(--accent); }
-    .shortcut-price { color: var(--muted); font-size: 14px; font-weight: 600; white-space: nowrap; }
-    .shortcut svg { width: 16px; height: 16px; }
-    .metodo { --accent: var(--metodo); --tint: #FFF0CF; }
-    .pva { --accent: var(--pva); --tint: #FCE6DD; }
-    .canva { --accent: var(--canva); --tint: #FBE5EA; }
-    .offers { display: grid; gap: 24px; }
+    .shortcut-dot { width: 4px; height: 28px; border-radius: 4px; background: var(--green); }
+    .shortcut-copy strong { display: block; font-size: 14px; line-height: 1.35; }
+    .shortcut-copy small { display: block; margin-top: 2px; color: var(--muted); font-size: 12px; line-height: 1.35; font-weight: 400; }
+    .shortcut-price { color: var(--green-ink); font-size: 14px; font-weight: 700; white-space: nowrap; }
+    .summary { margin-top: 14px; padding-top: 10px; border-top: 1px solid var(--border); }
+    .summary-title { margin: 0; font-size: 14px; font-weight: 700; }
+    .summary-list { list-style: none; padding: 0; margin: 5px 0 0; display: grid; gap: 4px; }
+    .summary-list li { display: flex; align-items: center; gap: 6px; font-size: 12px; line-height: 1.45; }
+    .summary-list svg { width: 14px; height: 14px; flex: none; color: var(--green-ink); }
+    .summary-list .amount { white-space: nowrap; font-weight: 700; }
+    .offers { display: grid; gap: 20px; }
     .offer {
-      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      padding: 18px;
       border: 1px solid var(--border);
-      border-top: 4px solid var(--accent);
+      border-top: 3px solid var(--green);
       border-radius: 20px;
       background: var(--surface);
-      box-shadow: 0 8px 24px var(--shadow);
+      box-shadow: 0 5px 18px var(--shadow);
       scroll-margin-top: 16px;
     }
-    .offer.metodo { border-color: #DBB16A; border-top-color: var(--metodo); box-shadow: 0 8px 28px rgba(120, 60, 20, .15); }
-    .cover { width: min(100%, 284px); aspect-ratio: 16 / 9; max-height: 160px; margin: 0 auto 16px; }
+    .cover { width: min(100%, 249px); aspect-ratio: 16 / 9; max-height: 140px; margin: 12px auto 0; }
     .cover svg { display: block; width: 100%; height: 100%; }
     .tag {
       display: inline-block;
-      padding: 5px 10px;
-      border-radius: 8px;
-      background: var(--tint);
-      border-left: 3px solid var(--accent);
-      font-size: 14px;
+      align-self: flex-start;
+      padding: 4px 8px;
+      border-radius: 6px;
+      background: var(--green-light);
+      color: var(--green-ink);
+      font-size: 13px;
       font-weight: 700;
     }
-    h2 { margin-top: 10px; font-size: 30px; line-height: 1.15; letter-spacing: -.015em; }
+    h2 { margin-top: 8px; font-size: 29px; line-height: 1.15; letter-spacing: -.025em; }
     .byline { margin-top: 4px; color: var(--muted); font-size: 14px; }
-    .description { margin-top: 14px; }
+    .path-label { display: flex; align-items: center; gap: 7px; margin-top: 12px; font-size: 14px; font-weight: 700; color: var(--green-ink); }
+    .path-label svg { width: 18px; height: 18px; flex: none; }
+    .description { margin-top: 8px; }
     .steps {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 12px;
       list-style: none;
-      padding: 14px 0;
-      margin: 18px 0;
+      padding: 12px 0;
+      margin: 12px 0 16px;
       border-block: 1px solid var(--border);
     }
     .steps li { position: relative; text-align: center; font-size: 13px; line-height: 1.4; font-weight: 600; }
     .step-icon {
       display: grid;
       place-items: center;
-      width: 36px;
-      height: 36px;
-      margin: 0 auto 8px;
-      border-radius: 11px;
-      background: var(--tint);
+      width: 32px;
+      height: 32px;
+      margin: 0 auto 6px;
+      border-radius: 9px;
+      background: var(--green-light);
+      color: var(--green-ink);
     }
     .step-icon svg { width: 20px; height: 20px; }
     .connector { position: absolute; top: 8px; right: -13px; color: var(--muted); font-size: 16px; }
-    .benefits { display: grid; gap: 10px; list-style: none; padding: 0; margin: 0 0 20px; }
+    .benefits { display: grid; gap: 8px; list-style: none; padding: 0; margin: 0 0 16px; font-size: 15px; }
     .benefits li { display: flex; gap: 9px; align-items: flex-start; }
     .check { width: 18px; height: 18px; margin-top: 3px; color: var(--check); flex: none; }
+    .purchase { margin-top: auto; }
+    .takeaway { padding: 10px 12px; margin-bottom: 12px; border-left: 3px solid var(--green); border-radius: 0 8px 8px 0; background: var(--soft); font-size: 14px; line-height: 1.45; }
     .ticket {
-      position: relative;
-      padding: 13px 18px;
+      padding: 12px 16px;
       margin-bottom: 12px;
       text-align: center;
-      border: 1px dashed #C5A582;
+      border: 1px solid var(--border);
       border-radius: 12px;
-      background: var(--background);
+      background: var(--green-light);
     }
-    .ticket::before, .ticket::after {
-      content: "";
-      position: absolute;
-      top: calc(50% - 7px);
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: var(--surface);
-      border: 1px solid #C5A582;
-    }
-    .ticket::before { left: -8px; border-left-color: transparent; }
-    .ticket::after { right: -8px; border-right-color: transparent; }
-    .price { font-family: var(--heading-font); font-size: 40px; font-weight: 600; line-height: 1.15; white-space: nowrap; }
+    .price { font-family: var(--heading-font); font-size: 44px; font-weight: 750; letter-spacing: -.03em; line-height: 1.15; white-space: nowrap; }
+    .cash { font-size: 13px; color: var(--green-ink); }
     .payment { margin-top: 3px; font-size: 14px; color: var(--muted); }
     .cta {
       position: relative;
@@ -196,31 +186,57 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.22) 50%, transparent 70%);
+      background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.15) 50%, transparent 70%);
       transform: translateX(-120%);
       pointer-events: none;
     }
-    .offer.is-visible .cta::after { animation: button-glow 4s ease-in-out infinite; }
+    .offer.is-visible .cta::after { animation: button-glow 7s ease-in-out infinite; }
     .effects-paused .cta::after { animation-play-state: paused; }
+    .cta:active { background: var(--button-active); }
     .cta:active, .shortcut:active { transform: translateY(2px); box-shadow: none; }
+    .cta-note { margin-top: 9px; color: var(--muted); font-size: 12px; line-height: 1.45; text-align: center; }
     .offer.is-entering { animation: card-enter .4s ease-out both; animation-delay: var(--entry-delay, 0ms); }
-    .closing { padding: 30px 4px 20px; }
-    .closing h3 { margin-bottom: 8px; font-size: 26px; }
+    .closing { max-width: 700px; padding: 24px 0 16px; }
+    .closing h2 { margin: 0 0 8px; font-size: 24px; }
     .closing p { color: var(--muted); }
-    footer { padding: 0 4px 32px; font-size: 14px; color: var(--muted); }
+    footer { max-width: 700px; padding: 0 0 28px; font-size: 13px; color: var(--muted); }
     .icon-definitions { position: absolute; width: 0; height: 0; overflow: hidden; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
     @keyframes card-enter { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes button-glow { 0%, 78% { transform: translateX(-120%); } 100% { transform: translateX(120%); } }
+    @keyframes button-glow { 0%, 80% { transform: translateX(-120%); } 100% { transform: translateX(120%); } }
     @media (hover: hover) and (pointer: fine) {
-      .shortcut:hover { background: var(--surface); }
-      .cta:hover { box-shadow: 0 5px 12px rgba(120, 60, 20, .2); }
+      .shortcut:hover { background: var(--green-light); }
+      .cta:hover { background: var(--button-active); box-shadow: 0 4px 10px var(--shadow); }
     }
-    @media (min-width: 600px) { .hero { padding-top: 48px; } .offer { padding: 24px; } }
+    @media (min-width: 760px) {
+      .page { width: min(1100px, calc(100% - 48px)); }
+      .hero { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; padding: 32px 0 28px; }
+      .hero-copy { align-self: start; }
+      h1 { font-size: clamp(32px, 3.4vw, 42px); }
+      .hero-intro { font-size: 16px; }
+      .choose { grid-column: 2; grid-row: 1 / 3; margin-top: 0; align-self: center; }
+      .shortcut { padding: 10px 12px; min-height: 66px; }
+      .shortcut-copy strong { font-size: 15px; }
+      .shortcut-copy small { font-size: 13px; }
+      .summary { align-self: start; }
+      .offers { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .offer { padding: 20px; }
+      .closing, footer { margin-inline: auto; }
+    }
+    @media (min-width: 760px) and (max-width: 1119px) {
+      .offer:last-child { grid-column: 1 / -1; width: calc((100% - 20px) / 2); justify-self: center; }
+    }
+    @media (min-width: 1120px) {
+      .hero { gap: 0 64px; }
+      .offers { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .takeaway { min-height: 81px; display: flex; align-items: center; }
+      .ticket { min-height: 127px; }
+    }
     @media (max-width: 359px) {
       .offer { padding: 16px; }
-      .shortcut { column-gap: 7px; padding-inline: 10px; }
+      .shortcut { column-gap: 7px; padding-inline: 8px; }
       .shortcut-price { font-size: 13px; }
-      h1 { font-size: 30px; }
+      h1 { font-size: 27px; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -242,59 +258,68 @@
       <symbol id="icon-flag" viewBox="0 0 24 24"><path d="M5 21V3m0 1c5-4 9 4 14 0v10c-5 4-9-4-14 0" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
       <symbol id="icon-art" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="8" cy="8" r="2" fill="currentColor"/><path d="m4 18 6-6 4 4 3-3 4 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
       <symbol id="icon-chat" viewBox="0 0 24 24"><path d="M20 14a3 3 0 0 1-3 3H9l-6 4V6a3 3 0 0 1 3-3h11a3 3 0 0 1 3 3v8ZM7 8h9M7 12h6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-      <symbol id="icon-down" viewBox="0 0 24 24"><path d="M12 4v16m-6-6 6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     </defs>
   </svg>
   <main class="page">
     <header class="hero">
-      <p class="brand"><svg aria-hidden="true"><use href="#icon-product"/></svg> Renda Extra no Ponto</p>
-      <h1>Três jeitos de começar uma renda extra pelo celular</h1>
-      <p class="hero-intro">Cada opção tem resumo, preço e botão. Dá pra ver tudo em menos de um minuto.</p>
+      <div class="hero-copy">
+        <h1>Três jeitos de começar uma <span class="highlight">renda extra</span> pelo celular</h1>
+        <p class="hero-intro">Veja qual combina mais com você. Tem opção para divulgar produtos, começar no marketing digital ou vender uma habilidade.</p>
+      </div>
       <nav class="choose" aria-label="Escolha uma opção de aprendizado">
-        <p class="choose-title">Qual combina comigo?</p>
+        <p class="choose-title">Qual combina mais com você?</p>
         <div class="shortcuts">
-          <a class="shortcut metodo" href="#metodo"><span class="shortcut-dot" aria-hidden="true"></span><span>Já conheço a Shopee</span><span class="shortcut-price">R$ 149,99</span><svg aria-hidden="true"><use href="#icon-down"/></svg></a>
-          <a class="shortcut pva" href="#pva"><span class="shortcut-dot" aria-hidden="true"></span><span>Começando do zero</span><span class="shortcut-price">R$ 49,90</span><svg aria-hidden="true"><use href="#icon-down"/></svg></a>
-          <a class="shortcut canva" href="#canva"><span class="shortcut-dot" aria-hidden="true"></span><span>Gosto de criar</span><span class="shortcut-price">R$ 37</span><svg aria-hidden="true"><use href="#icon-down"/></svg></a>
+          <a class="shortcut" href="#metodo"><span class="shortcut-dot" aria-hidden="true"></span><span class="shortcut-copy"><strong>Já conheço a Shopee</strong><small>Aprender a ganhar comissão</small></span><span class="shortcut-price">R$ 149,99</span></a>
+          <a class="shortcut" href="#pva"><span class="shortcut-dot" aria-hidden="true"></span><span class="shortcut-copy"><strong>Estou começando do zero</strong><small>Entender como vender como afiliado</small></span><span class="shortcut-price">R$ 49,90</span></a>
+          <a class="shortcut" href="#canva"><span class="shortcut-dot" aria-hidden="true"></span><span class="shortcut-copy"><strong>Gosto de criar</strong><small>Aprender uma habilidade para vender</small></span><span class="shortcut-price">R$ 37</span></a>
         </div>
       </nav>
+      <section class="summary" aria-labelledby="summary-title">
+        <h2 class="summary-title" id="summary-title">Em resumo</h2>
+        <ul class="summary-list">
+          <li><svg aria-hidden="true"><use href="#icon-product"/></svg><span>Divulgar produtos — Método Lucrando — <span class="amount">R$ 149,99</span></span></li>
+          <li><svg aria-hidden="true"><use href="#icon-book"/></svg><span>Começar como afiliado — PVA — <span class="amount">R$ 49,90</span></span></li>
+          <li><svg aria-hidden="true"><use href="#icon-art"/></svg><span>Vender artes — Canva Lucrativo — <span class="amount">R$ 37</span></span></li>
+        </ul>
+      </section>
     </header>
 
     <div class="offers">
       <article class="offer metodo" id="metodo" aria-labelledby="title-metodo" tabindex="-1">
+        <span class="tag">Para quem já conhece a Shopee</span>
+        <h2 id="title-metodo">Método Lucrando</h2>
+        <p class="byline">por Alex Coelho</p>
+        <p class="path-label"><svg aria-hidden="true"><use href="#icon-product"/></svg>Divulgar produtos</p>
+        <p class="description">Aprenda a divulgar produtos da Shopee e receber comissão quando alguém compra pelo seu link. Tudo pelo celular, sem precisar aparecer.</p>
         <!-- CAPA MÉTODO: substituir SVG por imagem otimizada quando disponível.
              Arquivo opcional: capa-metodo.webp; usar alt descritivo e manter 16:9. -->
         <div class="cover" aria-hidden="true">
           <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
-            <rect x="12" y="12" width="376" height="201" rx="32" fill="#FFF0CF"/>
-            <circle cx="322" cy="54" r="23" fill="#F6B73C" opacity=".35"/>
-            <path d="M36 168h54M311 184h49" stroke="#EBC98D" stroke-width="5" stroke-linecap="round"/>
+            <rect x="12" y="12" width="376" height="201" rx="32" fill="#EAF8EF"/>
+            <circle cx="322" cy="54" r="23" fill="#27AE60" opacity=".35"/>
+            <path d="M36 168h54M311 184h49" stroke="#B9DEC6" stroke-width="5" stroke-linecap="round"/>
             <g transform="rotate(-7 185 112)">
-              <rect x="128" y="20" width="108" height="187" rx="18" fill="#3A2218"/>
-              <rect x="135" y="28" width="94" height="170" rx="12" fill="#FFFBF4"/>
-              <rect x="163" y="29" width="38" height="7" rx="3" fill="#3A2218"/>
-              <rect x="145" y="49" width="74" height="14" rx="5" fill="#F6B73C"/>
-              <rect x="145" y="75" width="34" height="47" rx="7" fill="#FFF0CF"/>
-              <path d="m151 90 8-5 4 5 7-5 5 6-5 6v16h-15V97Z" fill="#E2674A"/>
-              <rect x="185" y="75" width="34" height="47" rx="7" fill="#FBE5EA"/>
-              <path d="M193 92h17v21h-17zM197 92v-6h9v6" fill="none" stroke="#7A5A48" stroke-width="3" stroke-linejoin="round"/>
-              <rect x="145" y="132" width="74" height="38" rx="7" fill="#F3E8D9"/>
-              <path d="M154 143h45m-45 10h30" stroke="#7A5A48" stroke-width="3" stroke-linecap="round"/>
-              <circle cx="182" cy="184" r="4" fill="#EBC98D"/>
+              <rect x="128" y="20" width="108" height="187" rx="18" fill="#18212B"/>
+              <rect x="135" y="28" width="94" height="170" rx="12" fill="#FFFFFF"/>
+              <rect x="163" y="29" width="38" height="7" rx="3" fill="#18212B"/>
+              <rect x="145" y="49" width="74" height="14" rx="5" fill="#27AE60"/>
+              <rect x="145" y="75" width="34" height="47" rx="7" fill="#EAF8EF"/>
+              <path d="m151 90 8-5 4 5 7-5 5 6-5 6v16h-15V97Z" fill="#7BBF99"/>
+              <rect x="185" y="75" width="34" height="47" rx="7" fill="#EDF3F6"/>
+              <path d="M193 92h17v21h-17zM197 92v-6h9v6" fill="none" stroke="#5F6B76" stroke-width="3" stroke-linejoin="round"/>
+              <rect x="145" y="132" width="74" height="38" rx="7" fill="#E5EEE8"/>
+              <path d="M154 143h45m-45 10h30" stroke="#5F6B76" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="182" cy="184" r="4" fill="#B9DEC6"/>
             </g>
             <g transform="rotate(4 276 130)">
-              <rect x="215" y="115" width="157" height="47" rx="14" fill="#F6B73C" stroke="#DBB16A" stroke-width="1.5"/>
-              <circle cx="237" cy="138" r="10" fill="#FFFBF4"/>
-              <path d="m232 138 3 3 6-6" fill="none" stroke="#3A2218" stroke-width="2" stroke-linecap="round"/>
-              <text x="253" y="144" fill="#3A2218" font-family="system-ui, sans-serif" font-size="17" font-weight="600">+ comissão</text>
+              <rect x="215" y="115" width="157" height="47" rx="14" fill="#27AE60" stroke="#187D45" stroke-width="1.5"/>
+              <circle cx="237" cy="138" r="10" fill="#FFFFFF"/>
+              <path d="m232 138 3 3 6-6" fill="none" stroke="#18212B" stroke-width="2" stroke-linecap="round"/>
+              <text x="253" y="144" fill="#18212B" font-family="system-ui, sans-serif" font-size="17" font-weight="600">+ comissão</text>
             </g>
-            <path d="M68 66v16m-8-8h16M307 91v12m-6-6h12" stroke="#B88423" stroke-width="3" stroke-linecap="round"/>
+            <path d="M68 66v16m-8-8h16M307 91v12m-6-6h12" stroke="#187D45" stroke-width="3" stroke-linecap="round"/>
           </svg>
         </div>
-        <span class="tag">Para quem já conhece a Shopee</span>
-        <h2 id="title-metodo">Método Lucrando</h2>
-        <p class="byline">por Alex Coelho</p>
-        <p class="description">Aprenda a divulgar produtos da Shopee e receber comissão quando alguém compra pelo seu link. Tudo pelo celular, sem precisar aparecer.</p>
         <ol class="steps" aria-label="Como funciona o Método Lucrando">
           <li><span class="step-icon"><svg aria-hidden="true"><use href="#icon-product"/></svg></span>Escolhe um produto<span class="connector" aria-hidden="true">→</span></li>
           <li><span class="step-icon"><svg aria-hidden="true"><use href="#icon-link"/></svg></span>Divulga seu link<span class="connector" aria-hidden="true">→</span></li>
@@ -305,36 +330,39 @@
           <li><svg class="check" aria-hidden="true"><use href="#icon-check"/></svg><span>Feito para iniciantes, sem estoque e sem criar produto</span></li>
           <li><svg class="check" aria-hidden="true"><use href="#icon-check"/></svg><span>Suporte na área de membros e acesso por 2 anos</span></li>
         </ul>
-        <div class="ticket"><p class="price">R$ 149,99</p><p class="payment">à vista, ou 9x de R$ 19,71</p></div>
-        <a class="cta" href="https://kiwify.app/m0mn4dS?afid=ANrYBM87" data-offer="metodo" target="_blank" rel="sponsored noopener noreferrer">Conhecer o Método Lucrando</a>
+        <div class="purchase">
+          <p class="takeaway">Você aprende a divulgar produtos que outras pessoas já vendem.</p>
+          <div class="ticket"><p class="price">R$ 149,99</p><p class="cash">à vista</p><p class="payment">ou 9x de R$ 19,71</p></div>
+          <a class="cta" href="https://kiwify.app/m0mn4dS?afid=ANrYBM87" data-offer="metodo" target="_blank" rel="sponsored noopener noreferrer" aria-describedby="destination-metodo">Conhecer o Método Lucrando</a>
+          <p class="cta-note">Abre a página oficial com todos os detalhes</p>
+          <!-- Descrição acessível adicional, sem repetir a microcopy visual. -->
+          <p class="sr-only" id="destination-metodo">Você será direcionado para a página oficial do treinamento.</p>
+        </div>
       </article>
 
       <article class="offer pva" id="pva" aria-labelledby="title-pva" tabindex="-1">
+        <span class="tag">Para quem está começando do zero</span>
+        <h2 id="title-pva">PVA</h2>
+        <p class="byline">Primeira Venda Agora</p>
+        <p class="path-label"><svg aria-hidden="true"><use href="#icon-book"/></svg>Aprender o mercado de afiliados</p>
+        <p class="description">Um treinamento de entrada para entender como se vende pela internet como afiliado: escolher o que divulgar, montar a estrutura e buscar a primeira venda.</p>
         <!-- CAPA PVA: substituir SVG por imagem otimizada quando disponível.
              Arquivo opcional: capa-pva.webp; usar alt descritivo e manter 16:9. -->
         <div class="cover" aria-hidden="true">
           <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
-            <rect x="12" y="12" width="376" height="201" rx="32" fill="#FCE6DD"/>
-            <path d="M62 167h71a33 33 0 0 0 33-33v-17a33 33 0 0 1 33-33h109" fill="none" stroke="#E2674A" stroke-width="9" stroke-linecap="round"/>
-            <path d="M62 167h71a33 33 0 0 0 33-33v-17a33 33 0 0 1 33-33h109" fill="none" stroke="#FFFBF4" stroke-width="2" stroke-dasharray="6 9"/>
-            <g fill="#FFFBF4" stroke="#9F432E" stroke-width="3"><circle cx="73" cy="167" r="10"/><circle cx="167" cy="118" r="10"/><circle cx="298" cy="84" r="10"/></g>
-            <g transform="translate(37 75)">
-              <rect width="87" height="52" rx="12" fill="#E2674A"/>
-              <path d="M12 10h25v19H12zM43 10h29v19H43z" fill="#FFFBF4"/>
-              <path d="M8 38h69" stroke="#9F432E" stroke-width="3" stroke-linecap="round"/>
-              <circle cx="19" cy="52" r="8" fill="#3A2218"/><circle cx="68" cy="52" r="8" fill="#3A2218"/>
-              <circle cx="19" cy="52" r="3" fill="#FCE6DD"/><circle cx="68" cy="52" r="3" fill="#FCE6DD"/>
+            <rect x="12" y="12" width="376" height="201" rx="28" fill="#F3F7F4"/>
+            <path d="M62 132h50a42 42 0 0 0 42-42 26 26 0 0 1 26-26h32a26 26 0 0 1 26 26 42 42 0 0 0 42 42h53" fill="none" stroke="#27AE60" stroke-width="9" stroke-linecap="round"/>
+            <path d="M62 132h50a42 42 0 0 0 42-42 26 26 0 0 1 26-26h32a26 26 0 0 1 26 26 42 42 0 0 0 42 42h53" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="6 9"/>
+            <g fill="#FFFFFF" stroke="#187D45" stroke-width="3"><circle cx="62" cy="132" r="12"/><circle cx="196" cy="64" r="12"/><circle cx="333" cy="132" r="12"/></g>
+            <g fill="#18212B" font-family="system-ui, sans-serif" font-size="17" font-weight="600" text-anchor="middle">
+              <text x="62" y="170">Começo</text>
+              <text x="196" y="110">Estrutura</text>
+              <text x="330" y="170">1ª venda</text>
             </g>
-            <rect x="233" y="119" width="113" height="37" rx="12" fill="#FFFBF4"/>
-            <text x="249" y="143" fill="#3A2218" font-family="system-ui, sans-serif" font-size="18" font-weight="600">1ª venda</text>
-            <path d="M298 67V38l24 6-24 8" fill="#E2674A" stroke="#9F432E" stroke-width="2" stroke-linejoin="round"/>
-            <path d="M162 48v12m-6-6h12M344 173h16" stroke="#BE7B63" stroke-width="3" stroke-linecap="round"/>
+            <path d="M333 113V79l24 7-24 8" fill="#27AE60" stroke="#187D45" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M68 65v12m-6-6h12M188 180h16" stroke="#A4C5B0" stroke-width="3" stroke-linecap="round"/>
           </svg>
         </div>
-        <span class="tag">Para quem está começando do zero</span>
-        <h2 id="title-pva">PVA</h2>
-        <p class="byline">Primeira Venda Agora</p>
-        <p class="description">Um treinamento de entrada para entender como se vende pela internet como afiliado: escolher o que divulgar, montar a estrutura e buscar a primeira venda.</p>
         <ol class="steps" aria-label="Como funciona o PVA">
           <li><span class="step-icon"><svg aria-hidden="true"><use href="#icon-book"/></svg></span>Entende o mercado<span class="connector" aria-hidden="true">→</span></li>
           <li><span class="step-icon"><svg aria-hidden="true"><use href="#icon-layout"/></svg></span>Monta a estrutura<span class="connector" aria-hidden="true">→</span></li>
@@ -345,42 +373,48 @@
           <li><svg class="check" aria-hidden="true"><use href="#icon-check"/></svg><span>2 bônus: acelerador de vendas e gestão de caixa</span></li>
           <li><svg class="check" aria-hidden="true"><use href="#icon-check"/></svg><span>Garantia de 7 dias</span></li>
         </ul>
-        <div class="ticket"><p class="price">R$ 49,90</p><p class="payment">à vista, ou 12x de R$ 5,01</p></div>
-        <a class="cta" href="https://kiwify.app/FrsqcHD?afid=7AAd8oEW" data-offer="pva" target="_blank" rel="sponsored noopener noreferrer">Conhecer o PVA</a>
+        <div class="purchase">
+          <p class="takeaway">Uma opção de entrada para entender o mercado de afiliados.</p>
+          <div class="ticket"><p class="price">R$ 49,90</p><p class="cash">à vista</p><p class="payment">ou 12x de R$ 5,01</p></div>
+          <a class="cta" href="https://kiwify.app/FrsqcHD?afid=7AAd8oEW" data-offer="pva" target="_blank" rel="sponsored noopener noreferrer" aria-describedby="destination-pva">Conhecer o PVA</a>
+          <p class="cta-note">Abre a página oficial com todos os detalhes</p>
+          <p class="sr-only" id="destination-pva">Você será direcionado para a página oficial do treinamento.</p>
+        </div>
       </article>
 
       <article class="offer canva" id="canva" aria-labelledby="title-canva" tabindex="-1">
+        <span class="tag">Para quem prefere vender um serviço</span>
+        <h2 id="title-canva">Canva Lucrativo</h2>
+        <p class="path-label"><svg aria-hidden="true"><use href="#icon-art"/></svg>Vender uma habilidade</p>
+        <p class="description">Aprenda a criar artes no Canva e a oferecer para pequenos negócios. Você vende uma habilidade sua, sem precisar começar como designer.</p>
         <!-- CAPA CANVA: substituir SVG por imagem otimizada quando disponível.
              Arquivo opcional: capa-canva.webp; usar alt descritivo e manter 16:9. -->
         <div class="cover" aria-hidden="true">
           <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg">
-            <rect x="12" y="12" width="376" height="201" rx="32" fill="#FBE5EA"/>
+            <rect x="12" y="12" width="376" height="201" rx="32" fill="#EDF3F6"/>
             <g transform="rotate(-12 120 115)">
-              <rect x="48" y="43" width="119" height="145" rx="12" fill="#FFFBF4" stroke="#DDB3AE" stroke-width="2"/>
-              <rect x="60" y="55" width="95" height="91" rx="6" fill="#F6B73C"/>
-              <circle cx="92" cy="84" r="13" fill="#FFFBF4"/>
-              <path d="m60 137 33-34 23 21 19-15 20 28v9H60Z" fill="#B97926"/>
-              <path d="M62 160h75m-75 10h49" stroke="#7A5A48" stroke-width="3" stroke-linecap="round"/>
+              <rect x="48" y="43" width="119" height="145" rx="12" fill="#FFFFFF" stroke="#C6D7CC" stroke-width="2"/>
+              <rect x="60" y="55" width="95" height="91" rx="6" fill="#27AE60"/>
+              <circle cx="92" cy="84" r="13" fill="#FFFFFF"/>
+              <path d="m60 137 33-34 23 21 19-15 20 28v9H60Z" fill="#187D45"/>
+              <path d="M62 160h75m-75 10h49" stroke="#5F6B76" stroke-width="3" stroke-linecap="round"/>
             </g>
             <g transform="rotate(10 290 117)">
-              <rect x="232" y="43" width="119" height="145" rx="12" fill="#FFFBF4" stroke="#DDB3AE" stroke-width="2"/>
-              <rect x="244" y="55" width="95" height="91" rx="6" fill="#E2674A"/>
-              <path d="M263 77h56m-56 12h40" stroke="#3A2218" stroke-width="5" stroke-linecap="round"/>
-              <rect x="264" y="108" width="54" height="20" rx="10" fill="#FCE6DD"/>
-              <path d="M246 160h75m-75 10h49" stroke="#7A5A48" stroke-width="3" stroke-linecap="round"/>
+              <rect x="232" y="43" width="119" height="145" rx="12" fill="#FFFFFF" stroke="#C6D7CC" stroke-width="2"/>
+              <rect x="244" y="55" width="95" height="91" rx="6" fill="#7BBF99"/>
+              <path d="M263 77h56m-56 12h40" stroke="#18212B" stroke-width="5" stroke-linecap="round"/>
+              <rect x="264" y="108" width="54" height="20" rx="10" fill="#EAF8EF"/>
+              <path d="M246 160h75m-75 10h49" stroke="#5F6B76" stroke-width="3" stroke-linecap="round"/>
             </g>
-            <rect x="143" y="28" width="120" height="171" rx="12" fill="#FFFBF4" stroke="#C48B93" stroke-width="2"/>
-            <rect x="155" y="41" width="96" height="116" rx="7" fill="#E5708A"/>
-            <circle cx="203" cy="85" r="24" fill="#FBE5EA"/>
-            <path d="m195 88 8-17 8 17-8 11Z" fill="#A3435C"/>
-            <path d="M171 126h64m-54 11h44" stroke="#3A2218" stroke-width="4" stroke-linecap="round"/>
-            <path d="M157 174h74m-74 11h48" stroke="#7A5A48" stroke-width="3" stroke-linecap="round"/>
-            <path d="M330 30v12m-6-6h12M66 201h16" stroke="#A3435C" stroke-width="3" stroke-linecap="round"/>
+            <rect x="143" y="28" width="120" height="171" rx="12" fill="#FFFFFF" stroke="#A4C5B0" stroke-width="2"/>
+            <rect x="155" y="41" width="96" height="116" rx="7" fill="#A8D9BB"/>
+            <circle cx="203" cy="85" r="24" fill="#EDF3F6"/>
+            <path d="m195 88 8-17 8 17-8 11Z" fill="#187D45"/>
+            <path d="M171 126h64m-54 11h44" stroke="#18212B" stroke-width="4" stroke-linecap="round"/>
+            <path d="M157 174h74m-74 11h48" stroke="#5F6B76" stroke-width="3" stroke-linecap="round"/>
+            <path d="M330 30v12m-6-6h12M66 201h16" stroke="#187D45" stroke-width="3" stroke-linecap="round"/>
           </svg>
         </div>
-        <span class="tag">Para quem prefere vender um serviço</span>
-        <h2 id="title-canva">Canva Lucrativo</h2>
-        <p class="description">Aprenda a criar artes no Canva e a oferecer para pequenos negócios. Você vende uma habilidade sua, sem precisar começar como designer.</p>
         <ol class="steps" aria-label="Como funciona o Canva Lucrativo">
           <li><span class="step-icon"><svg aria-hidden="true"><use href="#icon-art"/></svg></span>Cria as artes<span class="connector" aria-hidden="true">→</span></li>
           <li><span class="step-icon"><svg aria-hidden="true"><use href="#icon-chat"/></svg></span>Oferece a clientes<span class="connector" aria-hidden="true">→</span></li>
@@ -391,13 +425,18 @@
           <li><svg class="check" aria-hidden="true"><use href="#icon-check"/></svg><span>Como procurar e abordar clientes</span></li>
           <li><svg class="check" aria-hidden="true"><use href="#icon-check"/></svg><span>Como montar seus serviços e cobrar por eles</span></li>
         </ul>
-        <div class="ticket"><p class="price">R$ 37</p></div>
-        <a class="cta" href="https://kiwify.app/1SMfVeQ?afid=vU2PrZbU" data-offer="canva" target="_blank" rel="sponsored noopener noreferrer">Conhecer o Canva Lucrativo</a>
+        <div class="purchase">
+          <p class="takeaway">Em vez de divulgar produtos, você aprende uma habilidade que pode oferecer como serviço.</p>
+          <div class="ticket"><p class="price">R$ 37</p><p class="cash">à vista</p></div>
+          <a class="cta" href="https://kiwify.app/1SMfVeQ?afid=vU2PrZbU" data-offer="canva" target="_blank" rel="sponsored noopener noreferrer" aria-describedby="destination-canva">Conhecer o Canva Lucrativo</a>
+          <p class="cta-note">Abre a página oficial com todos os detalhes</p>
+          <p class="sr-only" id="destination-canva">Você será direcionado para a página oficial do treinamento.</p>
+        </div>
       </article>
     </div>
 
     <section class="closing" aria-labelledby="closing-title">
-      <h3 id="closing-title">Sem pressa</h3>
+      <h2 id="closing-title">Sem pressa</h2>
       <p>Os botões abrem a página de cada curso, com todos os detalhes. Nada é cobrado aqui. Os resultados dependem da dedicação, da prática e da execução de cada pessoa, e nenhum ganho é garantido.</p>
     </section>
     <footer>Esta página usa links de afiliado: se você comprar por eles, podemos receber uma comissão, sem custo extra para você. Não temos vínculo com a Shopee nem com o Canva, e os nomes citados pertencem aos seus donos.</footer>
